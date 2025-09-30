@@ -11,6 +11,8 @@ import Footer from "@/components/footer/footer";
 import Script from "next/script";
 import Preloader from "@/components/preloader";
 import EasterEggs from "@/components/easter-eggs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { config } from "@/data/config";
 import SocketContextProvider from "@/contexts/socketio";
 import RemoteCursors from "@/components/realtime/remote-cursors";
@@ -64,7 +66,7 @@ export default function RootLayout({
           src={process.env.UMAMI_DOMAIN}
           data-website-id={process.env.UMAMI_SITE_ID}
         ></Script>
-        {/* <Analytics /> */}
+        <SpeedInsights />
       </head>
       <body>
         <ThemeProvider
@@ -88,6 +90,7 @@ export default function RootLayout({
             <Toaster />
             <EasterEggs />
             <ElasticCursor />
+            <Analytics />
           </Preloader>
         </ThemeProvider>
       </body>
